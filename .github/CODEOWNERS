@@ -1,0 +1,29 @@
+# Code Owners for Miriol Digital Solutions - atomic-crm
+# These owners will be automatically requested for review when someone opens a pull request.
+
+# Default owners for everything in the repo
+* @Miriol-Digital-Solutions/crm-team
+
+# Frontend/UI components
+/src/components/ @Miriol-Digital-Solutions/frontend-team
+/src/ui/ @Miriol-Digital-Solutions/frontend-team
+
+# Backend/Database
+/supabase/ @Miriol-Digital-Solutions/backend-team
+/supabase/migrations/ @Miriol-Digital-Solutions/backend-team
+
+# Configuration files
+/.github/ @Miriol-Digital-Solutions/devops-team
+/vite.config.ts @Miriol-Digital-Solutions/devops-team
+/package.json @Miriol-Digital-Solutions/devops-team
+
+# Documentation
+/doc/ @Miriol-Digital-Solutions/docs-team
+/README.md @Miriol-Digital-Solutions/docs-team
+*.md @Miriol-Digital-Solutions/docs-team
+
+# CI/CD Workflows
+/.github/workflows/ @Miriol-Digital-Solutions/devops-team
+
+# Note: Replace team slugs above with actual GitHub team names when teams are created
+# For now, individual maintainers can be specified like: @username

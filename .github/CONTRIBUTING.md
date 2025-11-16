@@ -1,6 +1,8 @@
-# Contributing
+# Contributing to Miriol CRM
 
 So you want to contribute to atomic-crm? Awesome! Thank you in advance for your contribution. Here are a few guidelines that will help you along the way.
+
+> **Note**: This is the Miriol Digital Solutions fork of atomic-crm. For the upstream project, visit [marmelab/atomic-crm](https://github.com/marmelab/atomic-crm).
 
 
 ## Opening an Issue
@@ -45,6 +47,74 @@ make lint
 
 **Tip**: If possible, enable linting in your editor to get realtime feedback and/or fixes.
 
+## Development Workflow
+
+### Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Miriol-Digital-Solutions/atomic-crm.git
+   cd atomic-crm
+   ```
+
+2. **Install dependencies**
+   ```bash
+   make install
+   ```
+
+3. **Start development environment**
+   ```bash
+   make start
+   ```
+
+4. **Access the application**
+   - Application: http://localhost:5173/
+   - Supabase Dashboard: http://localhost:54323/
+
+### Branch Naming
+
+Use descriptive branch names:
+- `feature/add-contact-import` - New features
+- `bugfix/fix-pipeline-drag` - Bug fixes
+- `hotfix/security-patch` - Urgent fixes
+- `refactor/cleanup-contacts` - Code refactoring
+- `docs/update-readme` - Documentation
+
+### Commit Messages
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat(contacts): add CSV import functionality
+fix(deals): resolve drag-and-drop issue
+docs(readme): update installation steps
+```
+
+### Testing
+
+Always run tests before submitting:
+
+```bash
+make test
+```
+
+## Code Review Process
+
+1. All PRs require at least one approval
+2. CI checks must pass (linting, tests, build)
+3. Address all review comments
+4. Keep PRs focused and reasonably sized
+
+## Recognition
+
+Contributors are recognized in release notes and the project's contributors list.
+
+## Questions?
+
+- Check existing [issues](https://github.com/Miriol-Digital-Solutions/atomic-crm/issues)
+- Create a new issue using the "Question" template
+- Contact the maintainers
+
 ## License
 
-By contributing your code to the marmelab/atomic-crm GitHub repository, you agree to license your contribution under the MIT license.
+By contributing your code to the Miriol-Digital-Solutions/atomic-crm GitHub repository, you agree to license your contribution under the MIT license.
