@@ -48,6 +48,9 @@ export type Sale = {
   password?: string;
 } & Pick<RaRecord, "id">;
 
+export type CompanyType = "Client" | "Partner" | "Supplier" | "Business Division";
+export type ClientType = "Agency" | "Advertiser" | "Publisher";
+
 export type Company = {
   name: string;
   logo: RAFile;
@@ -66,6 +69,8 @@ export type Company = {
   revenue: string;
   tax_identifier: string;
   country: string;
+  type?: CompanyType;
+  client_type?: ClientType;
   context_links?: string[];
   nb_contacts?: number;
   nb_deals?: number;

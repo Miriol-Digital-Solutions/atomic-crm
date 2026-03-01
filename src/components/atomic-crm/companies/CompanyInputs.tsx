@@ -1,4 +1,5 @@
 import { required, useRecordContext } from "ra-core";
+import { useWatch } from "react-hook-form";
 import { ReferenceInput } from "@/components/admin/reference-input";
 import { TextInput } from "@/components/admin/text-input";
 import { SelectInput } from "@/components/admin/select-input";
@@ -10,8 +11,23 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import ImageEditorField from "../misc/ImageEditorField";
 import { isLinkedinUrl } from "../misc/isLinkedInUrl";
 import { useConfigurationContext } from "../root/ConfigurationContext";
-import type { Company, Sale } from "../types";
+import type { Company, CompanyType, ClientType, Sale } from "../types";
 import { sizes } from "./sizes";
+
+// Company type options
+const companyTypes: Array<{ id: CompanyType; name: string }> = [
+  { id: "Client", name: "Client" },
+  { id: "Partner", name: "Partner" },
+  { id: "Supplier", name: "Supplier" },
+  { id: "Business Division", name: "Business Division" },
+];
+
+// Client type options (only shown when company type is "Client")
+const clientTypes: Array<{ id: ClientType; name: string }> = [
+  { id: "Agency", name: "Agency" },
+  { id: "Advertiser", name: "Advertiser" },
+  { id: "Publisher", name: "Publisher" },
+];
 
 const isUrl = (url: string) => {
   if (!url) return;
@@ -85,9 +101,26 @@ const CompanyContactInputs = () => {
 
 const CompanyContextInputs = () => {
   const { companySectors } = useConfigurationContext();
+  // Watch the 'type' field to conditionally show 'client_type'
+  const companyType = useWatch({ name: "type" });
+
   return (
     <div className="flex flex-col gap-4">
       <h6 className="text-lg font-semibold">Context</h6>
+      <SelectInput
+        source="type"
+        choices={companyTypes}
+        helperText={false}
+        label="Company Type"
+      />
+      {companyType === "Client" && (
+        <SelectInput
+          source="client_type"
+          choices={clientTypes}
+          helperText={false}
+          label="Client Type"
+        />
+      )}
       <SelectInput
         source="sector"
         choices={companySectors.map((sector) => ({
